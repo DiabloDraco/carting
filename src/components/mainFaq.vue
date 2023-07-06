@@ -159,6 +159,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  user-select: none;
 }
 .faq__item__top-num {
   color: var(--google-typography-disable, rgba(0, 0, 0, 0.38));
@@ -186,17 +187,19 @@ export default {
   transition: all 0.3s ease;
 }
 .faq__item-bottom {
-  max-height: 0;
+  max-height: 0px;
   height: 100%;
   overflow: hidden;
+  user-select: none;
   display: flex;
   flex-direction: column;
   align-items: start;
   padding-left: 48px;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .faq__item-bottom.opened {
+  transition: all 0.5s ease;
   max-height: 100%;
 }
 .faq__item-text {

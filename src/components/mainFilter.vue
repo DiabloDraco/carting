@@ -268,7 +268,10 @@ export default {
   display: flex;
   flex-direction: column;
   max-height: 44px;
+  height: 100%;
   overflow: hidden;
+  position: relative;
+  transition: all 0.5s ease;
   cursor: pointer;
 }
 .current__selected {
@@ -335,10 +338,6 @@ export default {
 
 .select__item:hover {
   background: #f1f2f7;
-}
-
-.filter__select {
-  position: relative;
 }
 
 .filter__select.opened {

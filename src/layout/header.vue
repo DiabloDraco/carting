@@ -74,7 +74,7 @@ export default {
 
 <template>
   <div style="width: 100%" class="header__top mobile">
-    <a class="header__logo-link" href="">
+    <a class="header__logo-link" href="/">
       <img class="header__logo" src="/images/logo.svg" alt="logo" />
     </a>
     <p @click="openSlide" class="header__logo-cross" href="">
@@ -84,7 +84,7 @@ export default {
   <header :class="{ openHeader: isMenu }" class="header">
     <div class="header__left">
       <div class="header__top">
-        <a class="header__logo-link" href="">
+        <a class="header__logo-link" href="/">
           <img class="header__logo" src="/images/logo.svg" alt="logo" />
         </a>
         <p @click="openSlide" class="header__logo-cross" href="">
@@ -120,7 +120,7 @@ export default {
             </div>
           </li>
           <li class="header__item">
-            <a class="header__item-link" href=""> Заказы </a>
+            <a class="header__item-link" href="/orders"> Заказы </a>
           </li>
           <li class="header__item">
             <a class="header__item-link" href=""> Услуги </a>
@@ -530,6 +530,10 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .header__top.mobile {
+    margin-top: 10px;
   }
 
   .header__logo-link {
