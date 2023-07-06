@@ -95,7 +95,7 @@ export default {
     text-decoration: none;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 30px;
     width: 100%;
   }
   .course__image {

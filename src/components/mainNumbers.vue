@@ -1,6 +1,8 @@
 <script>
 export default {
-  data() {},
+  data() {
+    return {}
+  },
   methods: {
     setCounter(upperto, element) {
       let counts = setInterval(updated)

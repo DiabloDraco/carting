@@ -1,7 +1,34 @@
 <script>
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation } from 'swiper/modules'
+
+import 'swiper/css'
+import 'swiper/css/navigation'
 export default {
-  mounted() {},
-  setup() {}
+  components: {
+    Swiper,
+    SwiperSlide
+  },
+  data() {
+    return {
+      perScroll: 4
+    }
+  },
+  mounted() {
+    if (window.innerWidth < 800) {
+      console.log(window.innerWidth)
+      this.perScroll = 1
+    }
+  },
+  setup() {
+    const onSwiper = (swiper) => {}
+    const onSlideChange = () => {}
+    return {
+      onSwiper,
+      onSlideChange,
+      modules: [Navigation]
+    }
+  }
 }
 </script>
 
@@ -9,8 +36,15 @@ export default {
   <section class="advantages">
     <h2 class="advantages__title">Преимущества платформы</h2>
     <div class="advantages__slider swiper">
-      <div class="advantages__list swiper-wrapper">
-        <div>
+      <swiper
+        :modules="modules"
+        :slides-per-view="perScroll"
+        :space-between="50"
+        navigation
+        @swiper="onSwiper"
+        @slideChange="onSlideChange"
+      >
+        <swiper-slide>
           <div class="swiper__item">
             <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
             <h3 class="swiper__item-title">Удобный поиск</h3>
@@ -19,8 +53,8 @@ export default {
             </p>
             <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
           </div>
-        </div>
-        <div>
+        </swiper-slide>
+        <swiper-slide>
           <div class="swiper__item">
             <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
             <h3 class="swiper__item-title">Удобный поиск</h3>
@@ -29,8 +63,8 @@ export default {
             </p>
             <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
           </div>
-        </div>
-        <div>
+        </swiper-slide>
+        <swiper-slide>
           <div class="swiper__item">
             <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
             <h3 class="swiper__item-title">Удобный поиск</h3>
@@ -39,8 +73,8 @@ export default {
             </p>
             <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
           </div>
-        </div>
-        <div>
+        </swiper-slide>
+        <swiper-slide>
           <div class="swiper__item">
             <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
             <h3 class="swiper__item-title">Удобный поиск</h3>
@@ -49,8 +83,168 @@ export default {
             </p>
             <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
           </div>
-        </div>
-      </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper__item">
+            <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
+            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <p class="swiper__item-text">
+              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+            </p>
+            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+          </div>
+        </swiper-slide>
+      </swiper>
       <button class="navigation right prev__slide">
         <img class="navigation__img" src="/images/arrow-left.svg" alt="" />
       </button>
@@ -91,7 +285,7 @@ export default {
   position: relative;
   overflow: hidden;
   height: 305px;
-  width: 226px;
+  width: 206px;
 }
 
 .banner_circling {
@@ -159,12 +353,6 @@ export default {
 }
 
 .advantages__list {
-  display: flex;
-  max-width: 100%;
-  overflow: hidden;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
   height: 345px;
 }
 .left {

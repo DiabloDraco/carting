@@ -248,7 +248,6 @@ export default {
   border-radius: 20px;
   margin-top: 267px;
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.055);
-  overflow-x: hidden;
 }
 .filter__title {
   color: var(--google-typography-h-1, rgba(0, 0, 0, 0.87));
@@ -313,6 +312,7 @@ export default {
   top: 100%;
   width: 100%;
   padding: 0;
+  z-index: 2;
   transition: all 0.3s ease;
   gap: 10px;
   margin: 0;

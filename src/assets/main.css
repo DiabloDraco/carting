@@ -44,3 +44,19 @@ body {
   font-family: 'Inter', 'sans-serif';
   font-style: normal;
 }
+
+@media only screen and (max-width: 600px) {
+  /* MOBILE */
+
+  .container {
+    max-width: 1160px;
+    padding: 0 10px;
+    margin: 0 auto;
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+}
