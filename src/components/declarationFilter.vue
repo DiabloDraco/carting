@@ -77,7 +77,7 @@ export default {
         <button class="order__filter__btn-right">Найти заказ</button>
       </div>
     </div>
-    <div class="order__filter-bottom container">
+    <div class="order__filter-bottom">
       <div class="order__filter__bottom-bottom">
         <div class="invitation__input-wrapper">
           <p class="invitation__input-text">Тип обьявления</p>
@@ -448,6 +448,12 @@ export default {
     z-index: 999;
     transform: translateX(-100%);
     transition: all 0.3s ease;
+  }
+
+  .order__filter-bottom {
+    max-width: 90vw;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .openFilter {
