@@ -2,6 +2,15 @@
 export default {
   methods: {
     toggleSelect(e) {
+      let selects = document.querySelector('.filter__select.opened')
+      if (selects && selects != e.target.closest('.filter__select')) {
+        selects.classList.remove('opened')
+        if (selects.style.overflow != 'inherit') {
+          selects.style.overflow = 'inherit'
+        } else {
+          selects.style.overflow = 'hidden'
+        }
+      }
       let select = e.target.closest('.filter__select')
       if (select.style.overflow != 'inherit') {
         select.style.overflow = 'inherit'

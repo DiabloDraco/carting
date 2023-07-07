@@ -5,30 +5,14 @@ export default {}
 <template>
   <div class="card">
     <div class="l_section">
-      <div class="l_card">
-        <h4 class="title">УЗБ, Ташкент</h4>
-        <h6 class="text">11 сен, 22:30</h6>
-        <img src="/images/green.png" alt="green circle" class="icon" />
-      </div>
-      <div class="l_card">
-        <h4 class="title">РОС, Москва</h4>
-        <h6 class="text">12 сен, 12:48</h6>
-        <img src="/images/grey.png" alt="green circle" class="icon" />
-      </div>
-      <div class="l_card">
-        <h4 class="title">Контракт составлен</h4>
-        <h6 class="text">16 сен, 11:08</h6>
-        <img src="/images/grey.png" alt="green circle" class="icon" />
-      </div>
-
-      <div class="left_border"></div>
+      <img src="/images/truck1.png" alt="truck image" class="image" />
     </div>
 
     <div class="r_section">
       <div class="top">
         <div class="text_section">
           <h3 class="title">
-            <a href="/">Перевезти помидоры из Узбекистана в Россию</a>
+            <router-link to="/">Перевезти помидоры из Узбекистана в Россию</router-link>
           </h3>
           <p class="description">
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
@@ -46,8 +30,10 @@ export default {}
 
       <div class="middle">
         <div class="price_info">
-          <img src="/images/case.svg" alt="suitcase" />
-          <p class="text">от <span>10,000,000</span> до <span>20,000,000</span> сум</p>
+          <img src="/images/suitcase.svg" alt="suitcase" />
+          <p class="text">
+            <span>$35.000</span>
+          </p>
         </div>
         <div class="verify_info">
           <img src="/images/verify.svg" alt="verify icon" />
@@ -55,41 +41,33 @@ export default {}
         </div>
       </div>
 
-      <div class="hide_section">
-        <div class="l_card">
-          <h4 class="title">УЗБ, Ташкент</h4>
-          <h6 class="text">11 сен, 22:30</h6>
-          <img src="/images/green.png" alt="green circle" class="icon" />
-        </div>
-        <div class="l_card">
-          <h4 class="title">Контракт составлен</h4>
-          <h6 class="text">16 сен, 11:08</h6>
-          <img src="/images/grey.png" alt="green circle" class="icon" />
-
-          <div class="left_border"></div>
-        </div>
-
-        <div class="bottom_border"></div>
-      </div>
-
       <div class="bottom">
-        <p class="info">400 кг</p>
-        <p class="info">18 кг/м3</p>
+        <div class="truck_info">
+          <img src="/images/fuel.svg" alt="gas icon" class="icon" />
+          <p class="text">Дизельный</p>
+        </div>
+        <div class="truck_info">
+          <img src="/images/truck.svg" alt="truck icon" class="icon" />
+          <p class="text">25 т</p>
+        </div>
+        <div class="truck_info">
+          <img src="/images/energy.svg" alt="thunder icon" class="icon" />
+          <p class="text">480 л.с.</p>
+        </div>
+        <div class="truck_info">
+          <img src="/images/transmission.svg" alt="mechanic icon" class="icon" />
+          <p class="text">Механическая</p>
+        </div>
+        <div class="truck_info">
+          <img src="/images/speed.svg" alt="speed icon" class="icon" />
+          <p class="text">866 тыс. км</p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<style>
-h4 {
-  margin: 0;
-}
-p {
-  margin: 0;
-}
-h6 {
-  margin: 0;
-}
+<style scoped>
 .card {
   border: 1px solid #e8eaee;
   border-radius: 6px;
@@ -98,18 +76,48 @@ h6 {
   gap: 20px;
   margin-bottom: 24px;
 }
+@media screen and (max-width: 768px) {
+  .card {
+    flex-direction: column;
+  }
+}
 .card .l_section {
   display: flex;
-  flex-direction: column;
-  padding-right: 36px;
-  padding-left: 30px;
-  gap: 35px;
+  cursor: pointer;
+}
+.card .l_section .image {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 3px;
+}
+@media screen and (max-width: 768px) {
+  .card .l_section .image {
+    width: 100%;
+    height: 200px;
+  }
+}
+.card .l_section .l_card {
   position: relative;
 }
-@media screen and (max-width: 834px) {
-  .card .l_section {
-    display: none;
-  }
+.card .l_section .l_card .title {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #282828;
+  white-space: nowrap;
+  margin-bottom: 5px;
+}
+.card .l_section .l_card .text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #7b7d81;
+}
+.card .l_section .l_card .icon {
+  position: absolute;
+  top: 0;
+  left: -20%;
+  z-index: 99;
 }
 .card .l_section .left_border {
   position: absolute;
@@ -123,10 +131,10 @@ h6 {
   border-left: 1px solid #e8eaee;
   padding-left: 20px;
 }
-@media screen and (max-width: 834px) {
+@media screen and (max-width: 768px) {
   .card .r_section {
-    border-left: none;
-    padding-left: 0;
+    padding: 0;
+    border: none;
   }
 }
 .card .r_section .top {
@@ -170,10 +178,9 @@ h6 {
 }
 @media screen and (max-width: 768px) {
   .card .r_section .top .main_date {
-    width: 100%;
     flex-direction: row-reverse;
     justify-content: space-between;
-    align-items: center;
+    width: 100%;
   }
 }
 .card .r_section .top .main_date .dots {
@@ -248,68 +255,23 @@ h6 {
   line-height: 17px;
   color: rgba(0, 0, 0, 0.87);
 }
-.card .r_section .hide_section {
-  display: none;
-  justify-content: space-between;
-  padding-top: 15px;
-  padding-bottom: 47px;
-  position: relative;
-  border-bottom: 1px solid #e8eaee;
-}
-@media screen and (max-width: 834px) {
-  .card .r_section .hide_section {
-    display: flex;
-  }
-}
-.card .r_section .hide_section .l_card .icon {
-  top: 120%;
-  left: 0;
-}
-.card .r_section .hide_section .l_card:nth-of-type(2) .icon {
-  left: 94%;
-}
-.card .r_section .hide_section .bottom_border {
-  position: absolute;
-  height: 3px;
-  width: 100%;
-  border-bottom: 1px dashed #90a4af;
-  left: 0;
-  top: 68%;
-}
 .card .r_section .bottom {
   padding-block: 18px;
-  padding-bottom: 0;
   display: flex;
-  gap: 10px;
+  gap: 25px;
+  align-items: center;
+  padding-bottom: 0;
+  flex-wrap: wrap;
 }
-.card .r_section .bottom .info {
-  padding: 6px;
-  color: #007aff;
-  background-color: rgba(0, 122, 255, 0.05);
-  width: fit-content;
-  border-radius: 4px;
+.card .r_section .bottom .truck_info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
-.card .l_card {
-  position: relative;
-}
-.card .l_card .title {
+.card .r_section .bottom .truck_info .text {
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;
-  color: #282828;
-  white-space: nowrap;
-  margin-bottom: 5px;
-}
-.card .l_card .text {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: #7b7d81;
-}
-.card .l_card .icon {
-  position: absolute;
-  top: 0;
-  left: -20%;
-  z-index: 99;
+  color: rgba(0, 0, 0, 0.87);
 }
 </style>

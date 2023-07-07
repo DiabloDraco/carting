@@ -54,7 +54,7 @@ export default {
   </section>
 </template>
 
-<style>
+<style scoped>
 .services {
   margin-top: 67px;
 }

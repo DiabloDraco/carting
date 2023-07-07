@@ -3,6 +3,7 @@ export default {
   data() {
     return {
       dropdown: false,
+      currentPage: null,
       currentLang: {
         id: 1,
         lang: 'Узб',
@@ -64,19 +65,38 @@ export default {
       } else {
         body.style.overflowY = 'hidden'
       }
+    },
+    setPage() {
+      var path = window.location.pathname
+      if (path == '/') {
+        this.currentPage = 'home'
+      }
+      if (path == '/orders') {
+        this.currentPage = 'orders'
+      }
+      if (path == '/catalog') {
+        this.currentPage = 'catalog'
+      }
+      if (path == '/declaration') {
+        this.currentPage = 'declaration'
+      }
+      if (path == '/services') {
+        this.currentPage = 'services'
+      }
     }
   },
   mounted() {
     this.tryLang()
+    this.setPage()
   }
 }
 </script>
 
 <template>
   <div style="width: 100%" class="header__top mobile">
-    <a class="header__logo-link" href="/">
+    <router-link class="header__logo-link" to="/">
       <img class="header__logo" src="/images/logo.svg" alt="logo" />
-    </a>
+    </router-link>
     <p @click="openSlide" class="header__logo-cross" href="">
       <img class="header__cross" src="/images/burger.svg" alt="logo" />
     </p>
@@ -84,9 +104,9 @@ export default {
   <header :class="{ openHeader: isMenu }" class="header">
     <div class="header__left">
       <div class="header__top">
-        <a class="header__logo-link" href="/">
+        <router-link class="header__logo-link" to="/">
           <img class="header__logo" src="/images/logo.svg" alt="logo" />
-        </a>
+        </router-link>
         <p @click="openSlide" class="header__logo-cross" href="">
           <img class="header__cross" src="/images/cross.svg" alt="logo" />
         </p>
@@ -119,17 +139,17 @@ export default {
               </a>
             </div>
           </li>
-          <li class="header__item">
-            <a class="header__item-link" href="/orders"> Заказы </a>
+          <li :class="{ activeLink: currentPage == 'orders' }" class="header__item">
+            <router-link class="header__item-link" to="/orders"> Заказы </router-link>
           </li>
-          <li class="header__item">
-            <a class="header__item-link" href=""> Услуги </a>
+          <li :class="{ activeLink: currentPage == 'services' }" class="header__item">
+            <router-link class="header__item-link" to="/services"> Услуги </router-link>
           </li>
-          <li class="header__item">
-            <a class="header__item-link" href=""> Каталог машин </a>
+          <li :class="{ activeLink: currentPage == 'catalog' }" class="header__item">
+            <router-link class="header__item-link" to="/catalog"> Каталог машин </router-link>
           </li>
-          <li class="header__item">
-            <a class="header__item-link" href=""> Объявления </a>
+          <li :class="{ activeLink: currentPage == 'declaration' }" class="header__item">
+            <router-link class="header__item-link" to="/declaration"> Объявления </router-link>
           </li>
         </ul>
         <hr class="mobile" />
@@ -232,6 +252,7 @@ export default {
   text-transform: uppercase;
   text-decoration: none;
   transition: all 0.3s ease;
+  user-select: none;
 }
 
 .header__item-link::after {
@@ -244,6 +265,10 @@ export default {
   left: 0;
   margin-top: 8px;
   transition: all 0.5s ease;
+}
+.activeLink .header__item-link::after {
+  width: 100%;
+  background: #1b7244;
 }
 
 .header__item-link:hover {

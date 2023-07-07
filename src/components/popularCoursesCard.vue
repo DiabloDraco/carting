@@ -20,7 +20,7 @@ export default {
   </a>
 </template>
 
-<style>
+<style scoped>
 .course__card {
   display: flex;
   text-decoration: none;

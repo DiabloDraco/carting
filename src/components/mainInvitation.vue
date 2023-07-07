@@ -114,7 +114,7 @@ export default {
   </section>
 </template>
 
-<style>
+<style scoped>
 .filter__select {
   display: flex;
   flex-direction: column;
@@ -280,6 +280,7 @@ export default {
 .invitation__input-wrapper {
   display: flex;
   flex-direction: column;
+  max-width: 100%;
   gap: 8px;
 }
 .invitation__input-text {

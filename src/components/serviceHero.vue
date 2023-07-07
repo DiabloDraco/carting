@@ -1,11 +1,56 @@
 <script>
+import ServiceCard from '../components/serviceCard.vue'
+
 export default {
+  props: {
+    items: Array
+  },
   data() {
     return {
+      isDrop: false,
+      openFilterr: false,
       question: {
         id: 0,
         value: 'Выбрать'
       },
+      catalog: [
+        {
+          text: 'Аренда $10 в день',
+          title: 'Экскаватор',
+          img: '/images/catalog1.png',
+          link: '/'
+        },
+        {
+          text: 'Аренда $10 в день',
+          title: 'Экскаватор',
+          img: '/images/catalog1.png',
+          link: '/'
+        },
+        {
+          text: 'Аренда $10 в день',
+          title: 'Экскаватор',
+          img: '/images/catalog1.png',
+          link: '/'
+        },
+        {
+          text: 'Аренда $10 в день',
+          title: 'Экскаватор',
+          img: '/images/catalog1.png',
+          link: '/'
+        },
+        {
+          text: 'Аренда $10 в день',
+          title: 'Экскаватор',
+          img: '/images/catalog1.png',
+          link: '/'
+        },
+        {
+          text: 'Аренда $10 в день',
+          title: 'Экскаватор',
+          img: '/images/catalog1.png',
+          link: '/'
+        }
+      ],
       questions: [
         {
           id: 1,
@@ -27,16 +72,14 @@ export default {
     }
   },
   methods: {
+    setDrop() {
+      this.isDrop = !this.isDrop
+    },
+    openFilter() {
+      let filter = document.querySelector('.order__filter')
+      filter.classList.toggle('openFilter')
+    },
     toggleSelect(e) {
-      let selects = document.querySelector('.filter__select.opened')
-      if (selects && selects != e.target.closest('.filter__select')) {
-        selects.classList.remove('opened')
-        if (selects.style.overflow != 'inherit') {
-          selects.style.overflow = 'inherit'
-        } else {
-          selects.style.overflow = 'hidden'
-        }
-      }
       let select = e.target.closest('.filter__select')
       if (select.style.overflow != 'inherit') {
         select.style.overflow = 'inherit'
@@ -51,200 +94,198 @@ export default {
       }
     },
     openFilter() {
-      let filter = document.querySelector('.order__filter')
-      filter.classList.toggle('openFilter')
+      this.openFilterr = !this.openFilterr
     }
+  },
+  components: {
+    ServiceCard
   }
 }
 </script>
 
 <template>
-  <section class="order__filter">
-    <div class="flex-mobile">
-      <p class="order__text-title">Фильтр</p>
+  <section class="service__hero">
+    <div :class="{ opened__service: openFilterr }" class="service__hero-left">
+      <h2 class="service__hero__left-title">Фильтр по параметрам</h2>
       <img
         @click="openFilter"
-        class="order__cross"
+        class="service__hero__cross"
         width="30"
         height="30"
         src="/images/cross.svg"
         alt=""
       />
-    </div>
-    <div class="order__filter-top container">
-      <h3 class="order__filter-title">Быстрый поиск</h3>
-      <div class="order__filter-right">
-        <button class="order__filter__right-btn">
-          <img class="order__filter__btn-icon" src="/images/find-icon.png" alt="find" />
-          Сохранить поиск
-        </button>
-        <button class="order__filter__btn-right">Найти заказ</button>
+      <div class="service__hero__left-wrapper">
+        <div class="invitation__input-wrapper">
+          <p class="invitation__input-text">Тип услуги</p>
+          <div @click="toggleSelect" style="width: 100%" class="filter__select">
+            <div class="current__selected">
+              <p class="current__selected-text">{{ question.value }}</p>
+              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
+            </div>
+            <ul class="select__list">
+              <li
+                v-for="(item, index) in questions"
+                @click="setValue(item, 'queston')"
+                :key="item.id"
+                v-show="question.id != item.id"
+                class="select__item"
+              >
+                {{ item.value }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="invitation__input-wrapper">
+          <p class="invitation__input-text">Тип транспорта</p>
+          <div @click="toggleSelect" style="width: 100%" class="filter__select">
+            <div class="current__selected">
+              <p class="current__selected-text">{{ question.value }}</p>
+              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
+            </div>
+            <ul class="select__list">
+              <li
+                v-for="(item, index) in questions"
+                @click="setValue(item, 'queston')"
+                :key="item.id"
+                v-show="question.id != item.id"
+                class="select__item"
+              >
+                {{ item.value }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="invitation__input-wrapper">
+          <p class="invitation__input-text">Область</p>
+          <div @click="toggleSelect" style="width: 100%" class="filter__select">
+            <div class="current__selected">
+              <p class="current__selected-text">{{ question.value }}</p>
+              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
+            </div>
+            <ul class="select__list">
+              <li
+                v-for="(item, index) in questions"
+                @click="setValue(item, 'queston')"
+                :key="item.id"
+                v-show="question.id != item.id"
+                class="select__item"
+              >
+                {{ item.value }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="invitation__input-wrapper">
+          <p class="invitation__input-text">Город</p>
+          <div @click="toggleSelect" style="width: 100%" class="filter__select">
+            <div class="current__selected">
+              <p class="current__selected-text">{{ question.value }}</p>
+              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
+            </div>
+            <ul class="select__list">
+              <li
+                v-for="(item, index) in questions"
+                @click="setValue(item, 'queston')"
+                :key="item.id"
+                v-show="question.id != item.id"
+                class="select__item"
+              >
+                {{ item.value }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="invitation__input-wrapper">
+          <p class="invitation__input-text">Виды перевозок</p>
+          <div @click="toggleSelect" style="width: 100%" class="filter__select">
+            <div class="current__selected">
+              <p class="current__selected-text">{{ question.value }}</p>
+              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
+            </div>
+            <ul class="select__list">
+              <li
+                v-for="(item, index) in questions"
+                @click="setValue(item, 'queston')"
+                :key="item.id"
+                v-show="question.id != item.id"
+                class="select__item"
+              >
+                {{ item.value }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="invitation__input-wrapper">
+          <p class="invitation__input-text">Груз</p>
+          <div @click="toggleSelect" style="width: 100%" class="filter__select">
+            <div class="current__selected">
+              <p class="current__selected-text">{{ question.value }}</p>
+              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
+            </div>
+            <ul class="select__list">
+              <li
+                v-for="(item, index) in questions"
+                @click="setValue(item, 'queston')"
+                :key="item.id"
+                v-show="question.id != item.id"
+                class="select__item"
+              >
+                {{ item.value }}
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="order__filter-bottom container">
-      <div class="order__filter__bottom-top">
-        <div class="invitation__input-wrapper">
-          <p class="invitation__input-text">Откуда</p>
-          <div @click="toggleSelect" style="width: 100%" class="filter__select">
-            <div class="current__selected">
-              <p class="current__selected-text">{{ question.value }}</p>
-              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
+    <div class="service__hero-right">
+      <div class="order__list">
+        <div class="order__list-top">
+          <div class="order__lists__top-left">
+            <h2 class="order__list-title">Каталог машин</h2>
+            <p class="order__lists-text">Найдено 523,000 машин</p>
+          </div>
+          <div class="order__lists__top-right">
+            <div class="order__lists__top-right-filter">
+              <img
+                class="order__lists__top__right__filter-icon"
+                src="/images/filter.svg"
+                alt="filter"
+              />
+              <p @click="openFilter" class="order__lists__top__right__filter-text">Фильтр</p>
             </div>
-            <ul class="select__list">
-              <li
-                v-for="(item, index) in questions"
-                @click="setValue(item, 'queston')"
-                :key="item.id"
-                v-show="question.id != item.id"
-                class="select__item"
-              >
-                {{ item.value }}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="invitation__input-wrapper">
-          <p class="invitation__input-text">Куда</p>
-          <div @click="toggleSelect" style="width: 100%" class="filter__select">
-            <div class="current__selected">
-              <p class="current__selected-text">{{ question.value }}</p>
-              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
+            <div @click="setDrop" class="order__lists__top-right-sort">
+              <img src="/images/sort.svg" alt="" />
+              <p class="order__lists__top__right-text">Сортировать</p>
+              <div :class="{ dropped: isDrop }" class="order__lists__dropdown">
+                <div class="order__lists-item">Новые</div>
+                <div class="order__lists-item">Актуальные</div>
+                <div class="order__lists-item">Популярные</div>
+              </div>
             </div>
-            <ul class="select__list">
-              <li
-                v-for="(item, index) in questions"
-                @click="setValue(item, 'queston')"
-                :key="item.id"
-                v-show="question.id != item.id"
-                class="select__item"
-              >
-                {{ item.value }}
-              </li>
-            </ul>
           </div>
         </div>
-        <div class="invitation__input-wrapper">
-          <p class="invitation__input-text">Тип машины</p>
-          <div @click="toggleSelect" style="width: 100%" class="filter__select">
-            <div class="current__selected">
-              <p class="current__selected-text">{{ question.value }}</p>
-              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
-            </div>
-            <ul class="select__list">
-              <li
-                v-for="(item, index) in questions"
-                @click="setValue(item, 'queston')"
-                :key="item.id"
-                v-show="question.id != item.id"
-                class="select__item"
-              >
-                {{ item.value }}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="invitation__input-wrapper width">
-          <p class="invitation__input-text">Вес, т</p>
-          <div class="invitation__input-bottom">
-            <input class="filter__input bord-left" type="text" placeholder="от" />
-            <input class="filter__input bord-right" type="text" placeholder="до" />
-          </div>
-        </div>
-        <div class="invitation__input-wrapper width">
-          <p class="invitation__input-text">Обьем, м²</p>
-          <div class="invitation__input-bottom">
-            <input class="filter__input bord-left" type="text" placeholder="от" />
-            <input class="filter__input bord-right" type="text" placeholder="до" />
-          </div>
-        </div>
-      </div>
-      <div class="order__filter__bottom-bottom">
-        <div class="invitation__input-wrapper">
-          <p class="invitation__input-text">Тип загрузки</p>
-          <div @click="toggleSelect" style="width: 100%" class="filter__select">
-            <div class="current__selected">
-              <p class="current__selected-text">{{ question.value }}</p>
-              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
-            </div>
-            <ul class="select__list">
-              <li
-                v-for="(item, index) in questions"
-                @click="setValue(item, 'queston')"
-                :key="item.id"
-                v-show="question.id != item.id"
-                class="select__item"
-              >
-                {{ item.value }}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="invitation__input-wrapper">
-          <p class="invitation__input-text">Наименование груза</p>
-          <div @click="toggleSelect" style="width: 100%" class="filter__select">
-            <div class="current__selected">
-              <p class="current__selected-text">{{ question.value }}</p>
-              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
-            </div>
-            <ul class="select__list">
-              <li
-                v-for="(item, index) in questions"
-                @click="setValue(item, 'queston')"
-                :key="item.id"
-                v-show="question.id != item.id"
-                class="select__item"
-              >
-                {{ item.value }}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="invitation__input-wrapper">
-          <p class="invitation__input-text">Оплата</p>
-          <div @click="toggleSelect" style="width: 100%" class="filter__select">
-            <div class="current__selected">
-              <p class="current__selected-text">{{ question.value }}</p>
-              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
-            </div>
-            <ul class="select__list">
-              <li
-                v-for="(item, index) in questions"
-                @click="setValue(item, 'queston')"
-                :key="item.id"
-                v-show="question.id != item.id"
-                class="select__item"
-              >
-                {{ item.value }}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="invitation__input-wrapper">
-          <p class="invitation__input-text">Показать только</p>
-          <div @click="toggleSelect" style="width: 100%" class="filter__select">
-            <div class="current__selected">
-              <p class="current__selected-text">{{ question.value }}</p>
-              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
-            </div>
-            <ul class="select__list">
-              <li
-                v-for="(item, index) in questions"
-                @click="setValue(item, 'queston')"
-                :key="item.id"
-                v-show="question.id != item.id"
-                class="select__item"
-              >
-                {{ item.value }}
-              </li>
-            </ul>
-          </div>
+        <div class="order__lists-list">
+          <ServiceCard
+            v-for="(item, index) in catalog"
+            :text="item.text"
+            :title="item.title"
+            :img="item.img"
+            :link="item.link"
+          />
         </div>
       </div>
     </div>
   </section>
 </template>
 
-<style>
+<style scoped>
+.service__hero {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
 .filter__select {
   display: flex;
   flex-direction: column;
@@ -302,6 +343,12 @@ export default {
   box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.048);
 }
 
+.service__hero__left-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .select__item {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -334,230 +381,223 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-width: 272px;
+  max-width: 100%;
   width: 100%;
 }
 
-.width {
-  max-width: 122px;
-  width: 100%;
+.order__list {
+  margin-top: 0;
 }
-
-.invitation__input-text {
-  color: var(--google-typography-body, rgba(0, 0, 0, 0.68));
-  font-size: 14px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin: 0;
-}
-
-.order__filter {
-  background: #f8f8f8;
-  padding: 27px 0 20px 0;
-}
-.order__filter-top {
+.service__hero__cross-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
 }
-.order__filter-title {
-  color: var(--google-typography-h-1, rgba(0, 0, 0, 0.87));
+.order__lists__dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 120%;
+  left: 20%;
+  max-height: 0;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  z-index: 3;
+}
+.order__lists__dropdown.dropped {
+  max-height: 100%;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.055);
+  overflow: visible;
+  background-color: white;
+}
+.container {
+}
+
+.order__lists-item {
   margin: 0;
+  transition: all 0.3s ease;
+  padding: 10px 5px;
+  background-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.089);
+}
+
+.order__lists-item:first-child {
+  border-radius: 10px 10px 0 0;
+}
+
+.order__lists-item:last-child {
+  border-radius: 0 0 10px 10px;
+}
+
+.order__lists-item:hover {
+  background-color: rgb(224, 222, 222);
+}
+.order__list {
+  margin-top: 0;
+  max-width: 765px;
+}
+.order__list-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+.service__hero-left {
+  max-width: 341px;
+  width: 100%;
+  padding-right: 30px;
+  border-right: 1px solid #e8eaee;
+}
+.order__list-title {
+  color: var(--google-typography-h-1, rgba(0, 0, 0, 0.87));
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  padding-right: 20px;
+  border-right: 2px solid #d4d4d4;
+  margin: 0;
+  margin-right: 20px;
 }
-.order__filter-right {
+.order__lists-text {
+  color: var(--google-typography-h-1, rgba(0, 0, 0, 0.87));
+  font-family: Inter;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+.order__lists__top-left {
   display: flex;
   align-items: center;
-  gap: 20px;
 }
-.order__filter__right-btn {
+
+.order__lists__top-right-sort {
   display: flex;
   align-items: center;
   gap: 10px;
-  border: none;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+.order__lists__top__right-text {
   color: var(--blue, #007aff);
-  font-family: Inter;
+  margin: 0;
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  background: none;
-  cursor: pointer;
-  padding: 8px 14px;
-  border-radius: 12px;
-  transition: all 0.3s ease;
+}
+.order__lists-list {
+}
+.order__lists__top-right-filter {
+  display: none;
 }
 
-.order__filter__right-btn:hover {
-  color: white;
-  background: var(--blue, #007aff);
-}
-.order__filter__btn-icon {
-  transition: all 0.3s ease;
-  width: 20px;
-  height: 20px;
-  object-fit: cover;
-}
-
-.bord-right {
-  border-radius: 0 6px 6px 0;
-}
-
-.bord-left {
-  border-radius: 6px 0 0 6px;
-}
-
-.order__filter__right-btn:hover .order__filter__btn-icon {
-  filter: brightness(0) invert(1);
-}
-.order__filter__btn-right {
-  border: none;
-  border-radius: 6px;
-  background: var(--primary, #a0eb41);
-  padding: 10px 16px;
-  color: var(--white, #fff);
-  font-family: Rubik;
-  font-size: 16px;
+.service__hero__left-title {
+  color: #333;
+  font-size: 19px;
   font-style: normal;
-  font-weight: 400;
-  cursor: pointer;
+  font-weight: 600;
   line-height: normal;
-  transition: all 0.3s ease;
-}
-.order__filter__btn-right:hover {
-  background: var(--white, #fff);
-  color: var(--primary, #a0eb41);
-  box-shadow: inset 0 0 0 1px var(--primary, #a0eb41);
-}
-.order__filter-bottom {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-.order__filter__bottom-top {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.invitation__input-bottom {
-  display: flex;
-  align-items: center;
-}
-.filter__input {
-  padding: 13px;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  border: 1px solid #e8eaee;
-  background: #fff;
-  max-width: 36px;
-  width: 100%;
-  transition: all 0.3s ease;
-}
-.filter__input:focus {
-  outline: none;
-  border: 1px solid #1b7244;
-}
-.order__filter__bottom-bottom {
-  display: flex;
-  align-items: center;
-  gap: 24px;
+  margin: 0;
+  padding-bottom: 20px;
+  position: relative;
+  margin-bottom: 20px;
 }
 
-.flex-mobile {
+.service__hero__left-title::after {
+  content: '';
+  width: 109%;
+  height: 2px;
+  background-color: #e8eaee;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.service__hero__cross {
   display: none;
 }
 
 @media only screen and (max-width: 600px) {
   /* MOBILE */
 
-  .order__filter {
+  .order__list-top {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .service__hero__cross {
+    display: flex;
     position: fixed;
-    top: 0;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .order__list-title {
+    border-right: none;
+  }
+  .order__lists__top-right {
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow: scroll;
-    z-index: 999;
-    transform: translateX(-100%);
-    transition: all 0.3s ease;
-  }
-
-  .openFilter {
-    transform: translateX(0);
-  }
-
-  .order__filter__bottom-top {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .order__filter__bottom-bottom {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .invitation__input-wrapper {
-    max-width: 100%;
-  }
-
-  .width {
-    display: inline-block;
-    width: 45%;
-  }
-  .bord-left {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .bord-right {
-    max-width: 100%;
-    width: 100%;
-  }
-  .order__filter-top {
-    order: 10;
-  }
-  .order__filter-title {
-    display: none;
-  }
-
-  .order__filter__right-btn {
-    display: none;
-  }
-
-  .order__filter-right {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 40px;
-  }
-
-  .order__filter-top {
-    margin: 0;
-  }
-
-  .order__filter__btn-right {
     width: 100%;
     margin-top: 20px;
-    max-width: 100%;
-  }
-
-  .flex-mobile {
-    display: flex;
-    padding: 0 10px;
-    align-items: center;
-    margin-bottom: 20px;
+    padding-right: 10px;
     justify-content: space-between;
   }
 
-  .flex-mobile img {
-    cursor: pointer;
+  .order__lists__top-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+    justify-content: start;
+  }
+
+  .order__lists__top-right-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 41px;
+    border-radius: 6px;
+    border: 1px solid var(--border-line-color, #e3e3e3);
+  }
+
+  .order__lists__top__right__filter-text {
+    color: var(--light-mode-colors-h-1, rgba(0, 0, 0, 0.87));
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+  }
+
+  .service__hero-left {
+    max-width: 341px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    bottom: 0;
+    padding-top: 15px;
+    background: white;
+    overflow: hidden;
+    overflow: scroll;
+    padding-right: 30px;
+    border-right: 1px solid #e8eaee;
+    transform: translateX(-120%);
+    transition: all 0.3s ease;
+    z-index: 9;
+  }
+
+  .opened__service {
+    transform: translateX(0);
   }
 }
 </style>

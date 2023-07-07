@@ -28,6 +28,15 @@ export default {
   },
   methods: {
     toggleSelect(e) {
+      let selects = document.querySelector('.filter__select.opened')
+      if (selects && selects != e.target.closest('.filter__select')) {
+        selects.classList.remove('opened')
+        if (selects.style.overflow != 'inherit') {
+          selects.style.overflow = 'inherit'
+        } else {
+          selects.style.overflow = 'hidden'
+        }
+      }
       let select = e.target.closest('.filter__select')
       if (select.style.overflow != 'inherit') {
         select.style.overflow = 'inherit'
@@ -65,10 +74,6 @@ export default {
     <div class="order__filter-top container">
       <h3 class="order__filter-title">Быстрый поиск</h3>
       <div class="order__filter-right">
-        <button class="order__filter__right-btn">
-          <img class="order__filter__btn-icon" src="/images/find-icon.png" alt="find" />
-          Сохранить поиск
-        </button>
         <button class="order__filter__btn-right">Найти заказ</button>
       </div>
     </div>
@@ -189,7 +194,7 @@ export default {
   </section>
 </template>
 
-<style>
+<style scoped>
 .filter__select {
   display: flex;
   flex-direction: column;

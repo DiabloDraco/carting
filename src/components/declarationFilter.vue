@@ -74,93 +74,13 @@ export default {
     <div class="order__filter-top container">
       <h3 class="order__filter-title">Быстрый поиск</h3>
       <div class="order__filter-right">
-        <button class="order__filter__right-btn">
-          <img class="order__filter__btn-icon" src="/images/find-icon.png" alt="find" />
-          Сохранить поиск
-        </button>
         <button class="order__filter__btn-right">Найти заказ</button>
       </div>
     </div>
     <div class="order__filter-bottom container">
-      <div class="order__filter__bottom-top">
-        <div class="invitation__input-wrapper">
-          <p class="invitation__input-text">Откуда</p>
-          <div @click="toggleSelect" style="width: 100%" class="filter__select">
-            <div class="current__selected">
-              <p class="current__selected-text">{{ question.value }}</p>
-              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
-            </div>
-            <ul class="select__list">
-              <li
-                v-for="(item, index) in questions"
-                @click="setValue(item, 'queston')"
-                :key="item.id"
-                v-show="question.id != item.id"
-                class="select__item"
-              >
-                {{ item.value }}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="invitation__input-wrapper">
-          <p class="invitation__input-text">Куда</p>
-          <div @click="toggleSelect" style="width: 100%" class="filter__select">
-            <div class="current__selected">
-              <p class="current__selected-text">{{ question.value }}</p>
-              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
-            </div>
-            <ul class="select__list">
-              <li
-                v-for="(item, index) in questions"
-                @click="setValue(item, 'queston')"
-                :key="item.id"
-                v-show="question.id != item.id"
-                class="select__item"
-              >
-                {{ item.value }}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="invitation__input-wrapper">
-          <p class="invitation__input-text">Тип машины</p>
-          <div @click="toggleSelect" style="width: 100%" class="filter__select">
-            <div class="current__selected">
-              <p class="current__selected-text">{{ question.value }}</p>
-              <img class="current__arrow" src="/images/arrow-bottom.svg" alt="arrow" />
-            </div>
-            <ul class="select__list">
-              <li
-                v-for="(item, index) in questions"
-                @click="setValue(item, 'queston')"
-                :key="item.id"
-                v-show="question.id != item.id"
-                class="select__item"
-              >
-                {{ item.value }}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="invitation__input-wrapper width">
-          <p class="invitation__input-text">Вес, т</p>
-          <div class="invitation__input-bottom">
-            <input class="filter__input bord-left" type="text" placeholder="от" />
-            <input class="filter__input bord-right" type="text" placeholder="до" />
-          </div>
-        </div>
-        <div class="invitation__input-wrapper width">
-          <p class="invitation__input-text">Обьем, м²</p>
-          <div class="invitation__input-bottom">
-            <input class="filter__input bord-left" type="text" placeholder="от" />
-            <input class="filter__input bord-right" type="text" placeholder="до" />
-          </div>
-        </div>
-      </div>
       <div class="order__filter__bottom-bottom">
         <div class="invitation__input-wrapper">
-          <p class="invitation__input-text">Тип загрузки</p>
+          <p class="invitation__input-text">Тип обьявления</p>
           <div @click="toggleSelect" style="width: 100%" class="filter__select">
             <div class="current__selected">
               <p class="current__selected-text">{{ question.value }}</p>
@@ -180,7 +100,7 @@ export default {
           </div>
         </div>
         <div class="invitation__input-wrapper">
-          <p class="invitation__input-text">Наименование груза</p>
+          <p class="invitation__input-text">Марка</p>
           <div @click="toggleSelect" style="width: 100%" class="filter__select">
             <div class="current__selected">
               <p class="current__selected-text">{{ question.value }}</p>
@@ -200,7 +120,7 @@ export default {
           </div>
         </div>
         <div class="invitation__input-wrapper">
-          <p class="invitation__input-text">Оплата</p>
+          <p class="invitation__input-text">Модель</p>
           <div @click="toggleSelect" style="width: 100%" class="filter__select">
             <div class="current__selected">
               <p class="current__selected-text">{{ question.value }}</p>
@@ -220,7 +140,7 @@ export default {
           </div>
         </div>
         <div class="invitation__input-wrapper">
-          <p class="invitation__input-text">Показать только</p>
+          <p class="invitation__input-text">Тип транспорта</p>
           <div @click="toggleSelect" style="width: 100%" class="filter__select">
             <div class="current__selected">
               <p class="current__selected-text">{{ question.value }}</p>
@@ -476,6 +396,45 @@ export default {
   display: none;
 }
 
+.order__filter__bottom-bottom {
+}
+.invitation__input-wrapper {
+}
+.invitation__input-text {
+}
+.filter__select {
+}
+.current__selected {
+}
+.current__selected-text {
+}
+.current__arrow {
+}
+.select__list {
+}
+.select__item {
+}
+.order__filter__bottom-top {
+}
+.order__filter__bottom__top-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.order__filter__bottom__top-radio {
+  width: 16px;
+  height: 16px;
+}
+.order__filter__bottom__top-text {
+  margin: 0;
+  color: var(--google-typography-h-1, rgba(0, 0, 0, 0.87));
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 @media only screen and (max-width: 600px) {
   /* MOBILE */
 
@@ -493,6 +452,7 @@ export default {
 
   .openFilter {
     transform: translateX(0);
+    width: 100%;
   }
 
   .order__filter__bottom-top {

@@ -26,7 +26,7 @@ export default {
   </a>
 </template>
 
-<style>
+<style scoped>
 .performers__card {
   text-decoration: none;
   display: flex;
