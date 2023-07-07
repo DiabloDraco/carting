@@ -36,8 +36,28 @@ export default {
     }
   },
   methods: {
-    toggleDropdown() {
-      this.dropdown = !this.dropdown
+    toggleDropdown(e) {
+      let select = e.target.closest('.header__right-dropdown')
+      if (!select.classList.contains('height__drop')) {
+        select.classList.add('height__drop')
+        this.waitTouch()
+      } else {
+        select.classList.remove('height__drop')
+      }
+    },
+    waitTouch() {
+      let second = document.querySelector('.header__right-dropdown.height__drop')
+      if (second) {
+        window.addEventListener(
+          'mousedown',
+          (e) => {
+            if (e.target.closest('.header__right-dropdown') != second) {
+              second.classList.remove('height__drop')
+            }
+          },
+          { once: true }
+        )
+      }
     },
     tryLang() {
       const params = new URLSearchParams(window.location.search)
@@ -159,11 +179,7 @@ export default {
       <a class="header__right-location none" href="">
         <img class="header__right__location-icon" src="/images/location.svg" alt="location" />
       </a>
-      <div
-        :class="{ height__drop: dropdown }"
-        @click="toggleDropdown"
-        class="header__right-dropdown"
-      >
+      <div @click="toggleDropdown" class="header__right-dropdown">
         <div class="header__right-current">
           <img class="header__right-img" :src="`/images/${currentLang.value}.png`" alt="flag" />
           <p class="header__right-text">{{ currentLang?.lang }}</p>

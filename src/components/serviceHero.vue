@@ -82,11 +82,32 @@ export default {
     toggleSelect(e) {
       let select = e.target.closest('.filter__select')
       if (select.style.overflow != 'inherit') {
+        select.classList.add('opened')
         select.style.overflow = 'inherit'
+        this.waitTouch()
       } else {
+        select.classList.remove('opened')
         select.style.overflow = 'hidden'
       }
-      select.classList.toggle('opened')
+    },
+    waitTouch() {
+      let second = document.querySelector('.filter__select.opened')
+      if (second) {
+        window.addEventListener(
+          'mousedown',
+          (e) => {
+            if (e.target.closest('.filter__select') != second) {
+              second.classList.remove('opened')
+              if (second.style.overflow != 'inherit') {
+                second.style.overflow = 'inherit'
+              } else {
+                second.style.overflow = 'hidden'
+              }
+            }
+          },
+          { once: true }
+        )
+      }
     },
     setValue(text, model) {
       if (model == 'question') {

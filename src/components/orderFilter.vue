@@ -28,32 +28,34 @@ export default {
   },
   methods: {
     toggleSelect(e) {
-      let selects = document.querySelector('.filter__select.opened')
-      if (selects && selects != e.target.closest('.filter__select')) {
-        selects.classList.remove('opened')
-        if (selects.style.overflow != 'inherit') {
-          selects.style.overflow = 'inherit'
-        } else {
-          selects.style.overflow = 'hidden'
-        }
-      }
       let select = e.target.closest('.filter__select')
       if (select.style.overflow != 'inherit') {
+        select.classList.add('opened')
         select.style.overflow = 'inherit'
+        this.waitTouch()
       } else {
+        select.classList.remove('opened')
         select.style.overflow = 'hidden'
       }
-      select.classList.toggle('opened')
-      window.addEventListener('mousedown', (e) => {
-        if (e.target != selects) {
-          selects.classList.remove('opened')
-        }
-        if (selects.style.overflow != 'inherit') {
-          selects.style.overflow = 'inherit'
-        } else {
-          selects.style.overflow = 'hidden'
-        }
-      })
+    },
+    waitTouch() {
+      let second = document.querySelector('.filter__select.opened')
+      if (second) {
+        window.addEventListener(
+          'mousedown',
+          (e) => {
+            if (e.target.closest('.filter__select') != second) {
+              second.classList.remove('opened')
+              if (second.style.overflow != 'inherit') {
+                second.style.overflow = 'inherit'
+              } else {
+                second.style.overflow = 'hidden'
+              }
+            }
+          },
+          { once: true }
+        )
+      }
     },
     setValue(text, model) {
       if (model == 'question') {
