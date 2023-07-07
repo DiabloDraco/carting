@@ -435,6 +435,13 @@ export default {
   line-height: normal;
 }
 
+.order__filter-bottom {
+  max-width: 1160px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 @media only screen and (max-width: 600px) {
   /* MOBILE */
 

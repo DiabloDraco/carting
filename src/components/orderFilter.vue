@@ -44,6 +44,16 @@ export default {
         select.style.overflow = 'hidden'
       }
       select.classList.toggle('opened')
+      window.addEventListener('mousedown', (e) => {
+        if (e.target != selects) {
+          selects.classList.remove('opened')
+        }
+        if (selects.style.overflow != 'inherit') {
+          selects.style.overflow = 'inherit'
+        } else {
+          selects.style.overflow = 'hidden'
+        }
+      })
     },
     setValue(text, model) {
       if (model == 'question') {
