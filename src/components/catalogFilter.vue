@@ -231,7 +231,6 @@ export default {
   text-overflow: ellipsis;
   whitespace: nowrap;
   font-size: 15px;
-  font-family: Rubik;
   font-style: normal;
   font-weight: 400;
   line-height: normal;

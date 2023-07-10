@@ -312,8 +312,6 @@ export default {
   text-overflow: ellipsis;
   whitespace: nowrap;
   font-size: 15px;
-  font-family: Rubik;
-  font-style: normal;
   font-weight: 400;
   line-height: normal;
   overflow: hidden;
@@ -375,7 +373,7 @@ export default {
   font-size: 16px;
   font-style: normal;
   border-radius: 6px;
-  background: var(--primary, #a0eb41);
+  background: #a0eb41;
   font-weight: 400;
   border: none;
   height: 100%;
@@ -385,7 +383,7 @@ export default {
 }
 
 .filter__button:hover {
-  color: var(--primary, #a0eb41);
+  color: #a0eb41;
   background: var(--white, #fff);
   box-shadow: inset 0 0 0 1px #a0eb41;
 }
@@ -446,8 +444,6 @@ export default {
     text-overflow: ellipsis;
     whitespace: nowrap;
     font-size: 15px;
-    font-family: Rubik;
-    font-style: normal;
     font-weight: 400;
     line-height: normal;
     overflow: hidden;
@@ -513,7 +509,7 @@ export default {
     font-size: 16px;
     font-style: normal;
     border-radius: 6px;
-    background: var(--primary, #a0eb41);
+    background: #a0eb41;
     font-weight: 400;
     border: none;
     height: 100%;
@@ -524,7 +520,7 @@ export default {
   }
 
   .filter__button:hover {
-    color: var(--primary, #a0eb41);
+    color: #a0eb41;
     background: var(--white, #fff);
     box-shadow: inset 0 0 0 1px #a0eb41;
   }

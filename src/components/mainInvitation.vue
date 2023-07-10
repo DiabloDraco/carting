@@ -160,8 +160,7 @@ export default {
   text-overflow: ellipsis;
   whitespace: nowrap;
   font-size: 15px;
-  font-family: Rubik;
-  font-style: normal;
+
   font-weight: 400;
   line-height: normal;
   overflow: hidden;
@@ -338,8 +337,7 @@ export default {
 .invitation__button {
   color: var(--white, #fff);
   font-size: 16px;
-  font-family: Rubik;
-  font-style: normal;
+
   font-weight: 400;
   line-height: normal;
   padding: 10px 16px;

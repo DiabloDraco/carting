@@ -128,16 +128,16 @@ export default {
     border: none;
     padding: 10px;
     border-radius: 6px;
-    background: var(--primary, #a0eb41);
+    background: #a0eb41;
     width: 100%;
     text-align: center;
     transition: all 0.3s ease;
   }
 
   .display-mobile:hover {
-    color: var(--primary, #a0eb41);
+    color: #a0eb41;
     background: var(--white, #fff);
-    box-shadow: inset 0 0 0 1px var(--primary, #a0eb41);
+    box-shadow: inset 0 0 0 1px #a0eb41;
   }
 
   .services__top-title {

@@ -15,53 +15,53 @@ export default {}
         <div class="fora__item-middle">
           <ul class="fora__item-list">
             <li class="fora__item-text-item">Сокращение простоя</li>
-            <li class="fora__item-text-item">Сокращение простоя</li>
-            <li class="fora__item-text-item">Сокращение простоя</li>
+            <li class="fora__item-text-item">Меньше холостого хода</li>
+            <li class="fora__item-text-item">Увеличение прибыли</li>
           </ul>
         </div>
         <button class="fora__item-btn">Войти</button>
       </div>
       <div class="fora__list-item">
         <div class="fora__item-top">
-          <img class="fora__item-img" src="/images/fora1.png" alt="" />
-          <p class="fora__item-text">Поставщики</p>
+          <img class="fora__item-img" src="/images/fora2.png" alt="" />
+          <p class="fora__item-text">Исполнители</p>
         </div>
         <span class="fora__item-line"></span>
         <div class="fora__item-middle">
           <ul class="fora__item-list">
-            <li class="fora__item-text-item">Сокращение простоя</li>
-            <li class="fora__item-text-item">Сокращение простоя</li>
-            <li class="fora__item-text-item">Сокращение простоя</li>
+            <li class="fora__item-text-item">Уменьшение расходов</li>
+            <li class="fora__item-text-item">Больше предложений</li>
+            <li class="fora__item-text-item">Снижение рисков</li>
           </ul>
         </div>
         <button class="fora__item-btn">Войти</button>
       </div>
       <div class="fora__list-item">
         <div class="fora__item-top">
-          <img class="fora__item-img" src="/images/fora1.png" alt="" />
-          <p class="fora__item-text">Поставщики</p>
+          <img class="fora__item-img" src="/images/fora3.png" alt="" />
+          <p class="fora__item-text">Диспечеры</p>
         </div>
         <span class="fora__item-line"></span>
         <div class="fora__item-middle">
           <ul class="fora__item-list">
-            <li class="fora__item-text-item">Сокращение простоя</li>
-            <li class="fora__item-text-item">Сокращение простоя</li>
-            <li class="fora__item-text-item">Сокращение простоя</li>
+            <li class="fora__item-text-item">Облегчение работы</li>
+            <li class="fora__item-text-item">Увеличение КПД</li>
+            <li class="fora__item-text-item">Увеличение прибыли</li>
           </ul>
         </div>
         <button class="fora__item-btn">Войти</button>
       </div>
       <div class="fora__list-item">
         <div class="fora__item-top">
-          <img class="fora__item-img" src="/images/fora1.png" alt="" />
-          <p class="fora__item-text">Поставщики</p>
+          <img class="fora__item-img" src="/images/fora4.png" alt="" />
+          <p class="fora__item-text">Граждани</p>
         </div>
         <span class="fora__item-line"></span>
         <div class="fora__item-middle">
           <ul class="fora__item-list">
-            <li class="fora__item-text-item">Сокращение простоя</li>
-            <li class="fora__item-text-item">Сокращение простоя</li>
-            <li class="fora__item-text-item">Сокращение простоя</li>
+            <li class="fora__item-text-item">Облегчение работы</li>
+            <li class="fora__item-text-item">Увеличение КПД</li>
+            <li class="fora__item-text-item">Увеличение прибыли</li>
           </ul>
         </div>
         <button class="fora__item-btn">Войти</button>
@@ -115,7 +115,7 @@ export default {}
 .fora__item-img {
   width: 37px;
   height: 33px;
-  object-fit: cover;
+  object-fit: contain;
 }
 .fora__item-text {
   color: var(--google-typography-h-1, rgba(0, 0, 0, 0.87));

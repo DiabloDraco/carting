@@ -207,6 +207,7 @@ export default {
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
+  margin-top: 10px;
   line-height: 140%;
 }
 .faq__item-line {

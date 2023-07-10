@@ -57,31 +57,29 @@ export default {
         <swiper-slide>
           <div class="swiper__item">
             <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
-            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <h3 class="swiper__item-title">GPS Трекинг</h3>
             <p class="swiper__item-text">
-              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+              Отслеживайте перевозки на карте и автоматизируйте работу с водителем
             </p>
-            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+            <img class="swiper__item-img" src="/images/swiper2.png" alt="img" />
           </div>
         </swiper-slide>
         <swiper-slide>
           <div class="swiper__item">
             <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
-            <h3 class="swiper__item-title">Удобный поиск</h3>
-            <p class="swiper__item-text">
-              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
-            </p>
-            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+            <h3 class="swiper__item-title">Онлайн страхования</h3>
+            <p class="swiper__item-text">Какждый ваш договор может быть застрохован онлайн</p>
+            <img class="swiper__item-img" src="/images/swiper3.png" alt="img" />
           </div>
         </swiper-slide>
         <swiper-slide>
           <div class="swiper__item">
             <img class="banner_circling" src="/images/back_circle.svg" alt="circling" />
-            <h3 class="swiper__item-title">Удобный поиск</h3>
+            <h3 class="swiper__item-title">Аналитика и отчеты</h3>
             <p class="swiper__item-text">
-              Вы можете найти нужного перевозчика или машину с помощью нескольких кликов.
+              В нашей платформе вы можете просматривать аналитику и отчеты по вашим заказам
             </p>
-            <img class="swiper__item-img" src="/images/swiper1.png" alt="img" />
+            <img class="swiper__item-img" src="/images/swiper4.png" alt="img" />
           </div>
         </swiper-slide>
         <swiper-slide>

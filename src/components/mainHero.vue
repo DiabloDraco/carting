@@ -86,8 +86,7 @@ export default {}
 .hero__btn__left-text {
   color: var(--google-typography-h-1, rgba(0, 0, 0, 0.87));
   font-size: 15px;
-  font-family: Rubik;
-  font-style: normal;
+
   font-weight: 400;
   line-height: normal;
   transition: all 0.3s ease;

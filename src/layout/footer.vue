@@ -282,8 +282,7 @@ export default {}
 .footer__item-title {
   color: var(--white, #fff);
   font-size: 17px;
-  font-family: Rubik;
-  font-style: normal;
+
   font-weight: 500;
   line-height: normal;
   margin: 0;

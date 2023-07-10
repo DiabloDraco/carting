@@ -197,12 +197,10 @@ export default {
 .current__selected-text {
   margin: 0;
   overflow: hidden;
-  color: var(--google-typography-h-1, rgba(0, 0, 0, 0.87));
+  color: rgba(0, 0, 0, 0.87);
   text-overflow: ellipsis;
   whitespace: nowrap;
   font-size: 15px;
-  font-family: Rubik;
-  font-style: normal;
   font-weight: 400;
   line-height: normal;
   overflow: hidden;
@@ -276,7 +274,7 @@ export default {
 }
 
 .invitation__input-text {
-  color: var(--google-typography-body, rgba(0, 0, 0, 0.68));
+  color: rgba(0, 0, 0, 0.68);
   font-size: 14px;
   font-family: Inter;
   font-style: normal;
@@ -296,7 +294,7 @@ export default {
   margin-bottom: 20px;
 }
 .order__filter-title {
-  color: var(--google-typography-h-1, rgba(0, 0, 0, 0.87));
+  color: rgba(0, 0, 0, 0.87);
   margin: 0;
   font-size: 24px;
   font-style: normal;
@@ -351,7 +349,7 @@ export default {
 .order__filter__btn-right {
   border: none;
   border-radius: 6px;
-  background: var(--primary, #a0eb41);
+  background: #a0eb41;
   padding: 10px 16px;
   color: var(--white, #fff);
   font-family: Rubik;
@@ -364,8 +362,8 @@ export default {
 }
 .order__filter__btn-right:hover {
   background: var(--white, #fff);
-  color: var(--primary, #a0eb41);
-  box-shadow: inset 0 0 0 1px var(--primary, #a0eb41);
+  color: #a0eb41;
+  box-shadow: inset 0 0 0 1px #a0eb41;
 }
 .order__filter-bottom {
   display: flex;
@@ -439,7 +437,7 @@ export default {
 }
 .order__filter__bottom__top-text {
   margin: 0;
-  color: var(--google-typography-h-1, rgba(0, 0, 0, 0.87));
+  color: rgba(0, 0, 0, 0.87);
   font-family: Inter;
   font-size: 15px;
   font-style: normal;
